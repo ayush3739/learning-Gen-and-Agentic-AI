@@ -2,7 +2,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from pydantic import BaseModel,Field
 from typing import Optional
-import os,requests
+import os, requests, subprocess
 import json
 
 
@@ -13,9 +13,66 @@ client = OpenAI(
     api_key=os.getenv("GITHUB_TOKEN"),
 )
 
+# Persistent working directory for run_command calls
+_current_dir = os.getcwd()
+
 def run_command(cmd: str):
-    result=os.system(cmd)
-    return result
+    """Run a Windows shell command. Captures real output. cd commands persist state."""
+    global _current_dir
+    stripped = cmd.strip()
+
+    # Handle 'cd <path>' specially so directory state persists across calls
+    if stripped.lower().startswith("cd ") or stripped.lower() == "cd":
+        target = stripped[3:].strip() if len(stripped) > 2 else ""
+        if not target:
+            return f"Current directory: {_current_dir}"
+        new_dir = target if os.path.isabs(target) else os.path.normpath(os.path.join(_current_dir, target))
+        if os.path.isdir(new_dir):
+            _current_dir = new_dir
+            return f"Changed directory to: {_current_dir}"
+        return f"Error: Directory not found: {new_dir}"
+
+    try:
+        result = subprocess.run(
+            stripped,
+            shell=True,
+            capture_output=True,
+            text=True,
+            cwd=_current_dir
+        )
+        output = (result.stdout + result.stderr).strip()
+        return output if output else f"Done (exit code {result.returncode})"
+    except Exception as e:
+        return f"Error running command: {e}"
+
+
+def write_file(json_input: str):
+    """
+    Write a file at the given path with the given content.
+    Expects a JSON string: {"path": "relative/or/abs/path", "content": "file content"}
+    Path is resolved relative to the current working directory (_current_dir).
+    """
+    try:
+        data = json.loads(json_input)
+        path: str = data["path"]
+        content: str = data.get("content", "")
+
+        # Resolve relative paths against the persistent cwd
+        if not os.path.isabs(path):
+            path = os.path.join(_current_dir, path)
+        path = os.path.normpath(path)
+
+        # Ensure parent directories exist
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(content)
+
+        return f"File written successfully: {path}"
+    except KeyError:
+        return "Error: JSON input must have a 'path' key"
+    except Exception as e:
+        return f"Error writing file: {e}"
 
 def get_weather(city:str):
     url=f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={os.getenv('OPENWEATHER_API_KEY')}&units=metric"
@@ -28,8 +85,9 @@ def get_weather(city:str):
 
 
 available_tools={
-    "get_weather":get_weather,
-    "run_command":run_command
+    "get_weather": get_weather,
+    "run_command": run_command,
+    "write_file":  write_file,
 }
 
 system_Prompt="""
@@ -50,8 +108,15 @@ system_Prompt="""
     {"step":"START" | "PLAN" | "OUTPUT" | "TOOL" ,"content":"string","tool_name":"string","input":"string"}
     
     Available Tools:
-    - get_weather: Takes city name as an input string and returns the weather info about the city 
-    - run_command(cmd: str): takes a system windows command as string and executes the command on user system and returns the output from that command
+    - get_weather: Takes a city name string and returns weather info for that city.
+    - run_command: Takes a Windows shell command string. Returns the real stdout/stderr output.
+      Directory changes (cd) persist across calls so subsequent commands run in the new folder.
+      Use this for mkdir, listing files, etc. Do NOT use echo to write file content.
+    - write_file: Takes a JSON string {"path": "<file path>", "content": "<file content>"}
+      The path is relative to the current working directory (affected by run_command cd).
+      Content is written exactly as provided — use real newlines (\n) in the JSON string.
+      ALWAYS use this tool instead of echo commands when creating or writing files.
+      Example input: {"path": "todo_app/index.html", "content": "<!DOCTYPE html>\n<html>\n..."}  
 
     Example 1:
     START: Hey, can you Solve 2+3*5/10 
@@ -106,6 +171,7 @@ while True:
 
         parsed_result=response.choices[0].message.parsed
         message_history.append({"role":"assistant","content":raw_result})
+
 
         if parsed_result.step=="START":
             print(f"🔥 : {parsed_result.content}")
