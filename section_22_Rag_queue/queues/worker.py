@@ -1,6 +1,6 @@
+from openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain_qdrant import QdrantVectorStore
-from openai import OpenAI
 from dotenv import load_dotenv
 import os
 load_dotenv("./.env")
@@ -22,15 +22,13 @@ vector_db = QdrantVectorStore.from_existing_collection(
     embedding=embedding_model,
 )
 
-#Take user Input 
-user_query=input("Ask Something : ")
+def process_query(query : str):
+    print("Searching Chunks ...",query)
+    search_results = vector_db.similarity_search(query=query)
 
-# Relevant chunks from the vector db
-search_results = vector_db.similarity_search(query=user_query)
+    context= "\n\n\n".join([f"Page Content : {result.page_content} \n Page Number : {result.metadata['page_label']}\nfile Location : {result.metadata['source']}" for result in search_results])
 
-context= "\n\n\n".join([f"Page Content : {result.page_content} \n Page Number : {result.metadata['page_label']}\nfile Location : {result.metadata['source']}" for result in search_results])
-
-System_prompt=f"""
+    System_prompt=f"""
     You are a helpful assistant who answers user query based on the available context.
     retreived from the PDF file along with page_contents and page_number.
 
@@ -39,15 +37,16 @@ System_prompt=f"""
 
     CONTEXT:
     {context}
-"""
+    """
 
-response=openai_client.chat.completions.create(
-    model="gpt-5",
-    messages=[
-        {"role":"system","content":System_prompt},
-        {"role":"user","content":user_query}
-    ]
+    response=openai_client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role":"system","content":System_prompt},
+            {"role":"user","content":query}
+        ]
+    )
+    print(f"🤖: {response.choices[0].message.content}")
+    return response.choices[0].message.content
     
-)
 
-print(f"🤖: {response.choices[0].message.content}")
