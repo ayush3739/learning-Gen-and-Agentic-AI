@@ -38,7 +38,7 @@ mem_client = Memory.from_config(config)
 while True :
     user_query = input("👉 ")
 
-    search_memory= mem_client.search(query=user_query)
+    search_memory= mem_client.search(query=user_query,user_id="ayush",)
 
     memories=[
         f"ID: {mem.get('id')}\nMemory: {mem.get("memory")}" for mem in search_memory
