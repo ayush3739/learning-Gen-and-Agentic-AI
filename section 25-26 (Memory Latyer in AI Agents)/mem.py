@@ -3,7 +3,7 @@ from ast import While
 from mem0 import Memory
 from dotenv import load_dotenv
 from openai import OpenAI
-import os 
+import os ,json
 load_dotenv()
 
 OpenAI_key = os.getenv("GITHUB_TOKEN")
@@ -38,9 +38,21 @@ mem_client = Memory.from_config(config)
 while True :
     user_query = input("👉 ")
 
+    search_memory= mem_client.search(query=user_query)
+
+    memories=[
+        f"ID: {mem.get('id')}\nMemory: {mem.get("memory")}" for mem in search_memory
+    ]
+
+    system_prompt=f"""
+        Here is the context about the user:
+        {json.dumps(memories)}
+    """
+
     response = client.chat.completions.create(
         model="gpt-4.1-mini",
         messages=[
+            {"role":"system","content": system_prompt},
             {"role":"user","content": user_query}
         ]
     )
