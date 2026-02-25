@@ -13,7 +13,8 @@ __init__.py
 *.swp
 *.swo
 *~
-
+*.mp3
+*.mp4
 # Jupyter Notebook
 .ipynb_checkpoints
 
