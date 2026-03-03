@@ -34,7 +34,7 @@ System_prompt=f"""
     You are a helpful assistant who answers user query based on the available context.
     retreived from the PDF file along with page_contents and page_number.
 
-    You should onle answer the user based on the following contect and navigate the 
+    You should only answer the user based on the following context and navigate the 
     user to open the right page number to know more about the topic.
 
     CONTEXT:
