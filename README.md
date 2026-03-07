@@ -8,21 +8,21 @@ A structured, hands-on course repository that progresses from **Python fundament
 
 | Section | Topic | Key Concepts |
 |---------|-------|-------------|
-| 1 – 6 | **Python Fundamentals** | Lambda functions, `enumerate`, `zip`, `*args/**kwargs`, dictionaries, walrus operator, collections, dunder/magic methods |
-| 7 – 10 | **Advanced Python & OOP** | Generators, decorators, object-oriented programming, list/dict/set comprehensions, exception handling |
-| 11 | **Concurrency & Parallelism** | Multiprocessing, multithreading, Global Interpreter Lock (GIL), inter-process communication, shared values |
-| 12 | **Asyncio & Async Programming** | `async`/`await`, event loops, `aiohttp`, race conditions, deadlocks, background workers, daemon threads |
-| 13 | **Pydantic** | Data validation, type-safe models, JSON serialization/deserialization |
-| 14 – 15 | **LLM Basics** | OpenAI API, Google Gemini API, GitHub Models API, LLM fundamentals |
-| 16 – 17 | **Prompt Engineering** | Few-shot prompting, chain-of-thought, role-based prompts, prompt serialization |
-| 18 – 19 | **Local LLMs** | Hugging Face Transformers, Ollama (Docker), running models offline |
-| 20 | **AI Agents** | Tool calling, function calling, autonomous decision-making, shell command execution |
-| 21 | **RAG Systems** | Document loading & chunking, vector embeddings, Qdrant vector DB, semantic search, retrieval-augmented generation |
-| 22 | **Distributed RAG with Queues** | Redis message queues, RQ workers, scalable RAG architecture |
-| 23 – 24 | **LangGraph & Multi-Modal AI** | Graph-based agent orchestration, memory checkpointing, image/vision model processing |
-| 25 – 26 | **Memory Layers in AI Agents** | Persistent conversation history, MongoDB for document storage, semantic memory |
-| 27 | **Knowledge Graphs** | Neo4j graph database, entity-relationship modelling, graph-based reasoning |
-| 28 | **Voice Agents & MCP** | Speech-to-text, text-to-speech (ElevenLabs, Azure, gTTS), Model Context Protocol (MCP) |
+| [1 – 6](section%201-6/README.md) | **Python Fundamentals** | Lambda functions, `enumerate`, `zip`, `*args/**kwargs`, dictionaries, walrus operator, collections, dunder/magic methods |
+| [7 – 10](section%207-10/README.md) | **Advanced Python & OOP** | Generators, decorators, object-oriented programming, list/dict/set comprehensions, exception handling |
+| [11](section%2011%20%28Mutltiprocessing%2CMultiThreading%2CGil%29/README.md) | **Concurrency & Parallelism** | Multiprocessing, multithreading, Global Interpreter Lock (GIL), inter-process communication, shared values |
+| [12](section%2012%20%28Asyncio%29/README.md) | **Asyncio & Async Programming** | `async`/`await`, event loops, `aiohttp`, race conditions, deadlocks, background workers, daemon threads |
+| [13](section%2013%20%28Pydantic%29/README.md) | **Pydantic** | Data validation, type-safe models, JSON serialization/deserialization |
+| [14 – 15](section%2014-15%28llms%20intro%29/README.md) | **LLM Basics** | OpenAI API, Google Gemini API, GitHub Models API, LLM fundamentals |
+| [16 – 17](section%2016-17%20%28Prompting%20Techniques%29/README.md) | **Prompt Engineering** | Few-shot prompting, chain-of-thought, role-based prompts, prompt serialization |
+| [18 – 19](section%2018-19%20%28Hugging%20Face%20%26%20ollama%20docker%29/README.md) | **Local LLMs** | Hugging Face Transformers, Ollama (Docker), running models offline |
+| [20](section%2020%20%28AI%20Agents%29/README.md) | **AI Agents** | Tool calling, function calling, autonomous decision-making, shell command execution |
+| [21](section%2021%20%28Rag%20systems%29/README.md) | **RAG Systems** | Document loading & chunking, vector embeddings, Qdrant vector DB, semantic search, retrieval-augmented generation |
+| [22](section_22_Rag_queue/README.md) | **Distributed RAG with Queues** | Redis message queues, RQ workers, scalable RAG architecture |
+| [23 – 24](section%2023-24%20%28Langgraph%20%26%20multi%20modal%20ai%29/README.md) | **LangGraph & Multi-Modal AI** | Graph-based agent orchestration, memory checkpointing, image/vision model processing |
+| [25 – 26](section%2025-26%20%28Memory%20Latyer%20in%20AI%20Agents%29/README.md) | **Memory Layers in AI Agents** | Persistent conversation history, MongoDB for document storage, semantic memory |
+| [27](section%2027%20%28Graph%20Memory%20and%20Knowledge%20graphs%29/README.md) | **Knowledge Graphs** | Neo4j graph database, entity-relationship modelling, graph-based reasoning |
+| [28](section%2028%20%28Voice%20agents%20%26%20MCP%20%29/README.md) | **Voice Agents & MCP** | Speech-to-text, text-to-speech (ElevenLabs, Azure, gTTS), Model Context Protocol (MCP) |
 
 ---
 
