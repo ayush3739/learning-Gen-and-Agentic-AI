@@ -4,8 +4,8 @@ gemini
 __pycache__/
 *.pyc
 *.vscode
-tempCodeRunnerFile.py
 __init__.py
+tempCodeRunnerFile.py
 
 # IDE
 .vscode/
