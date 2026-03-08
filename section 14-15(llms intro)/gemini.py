@@ -11,7 +11,7 @@ client = genai.Client(
 )
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview", contents="Hey there "
+    model="gemini-3-flash-preview", contents="Hey there, how are you doing?"
 )
 
 print(response.text)
