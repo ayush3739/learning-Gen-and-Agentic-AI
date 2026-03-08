@@ -9,11 +9,16 @@ DOCS_DIR.mkdir(exist_ok=True)
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
+@st.cache_data(ttl=30)
 def get_existing_collections() -> list[str]:
     client = QdrantClient(url="http://localhost:6333")
     names = [col.name for col in client.get_collections().collections]
     client.close()
     return names
+
+@st.cache_resource
+def get_retriver(collection_name: str) -> Retriver:
+    return Retriver(collection_name=collection_name)
 
 
 def index_pdf(pdf_path: Path, status_container) -> None:
@@ -81,11 +86,10 @@ with tab_new:
         if query:
             st.session_state["messages_new"].append({"role": "user", "content": query})
             st.chat_message("user").write(query)
-            with st.spinner("Retrieving & generating answer…"):
-                retriver = Retriver(collection_name=active)
-                response = retriver.answer(query=query)
+            with st.chat_message("assistant"):
+                retriver = get_retriver(active)
+                response = st.write_stream(retriver.answer_stream(query=query))
             st.session_state["messages_new"].append({"role": "assistant", "content": response})
-            st.chat_message("assistant").write(response)
     else:
         st.info("Upload and index a PDF above to start chatting.")
 
@@ -113,8 +117,7 @@ with tab_existing:
         if query:
             st.session_state["messages_existing"].append({"role": "user", "content": query})
             st.chat_message("user").write(query)
-            with st.spinner("Retrieving & generating answer…"):
-                retriver = Retriver(collection_name=selected)
-                response = retriver.answer(query=query)
+            with st.chat_message("assistant"):
+                retriver = get_retriver(selected)
+                response = st.write_stream(retriver.answer_stream(query=query))
             st.session_state["messages_existing"].append({"role": "assistant", "content": response})
-            st.chat_message("assistant").write(response)

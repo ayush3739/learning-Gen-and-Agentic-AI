@@ -38,16 +38,47 @@ class Retriver():
             {context}
         """
         response=self.openai_client.chat.completions.create(
-            model="gpt-5",
+            model="gpt-4o-mini",
             messages=[
                 {"role":"system","content":System_prompt},
                 {"role":"user","content":query}
             ]
-            
         )
         return response.choices[0].message.content
+
+    def stream_response(self, query: str, context: str):
+        """Yields text chunks for streaming UI."""
+        System_prompt=f"""
+            You are a helpful assistant who answers user query based on the available context.
+            retreived from the PDF file along with page_contents and page_number.
+
+            You should only answer the user based on the following context and navigate the 
+            user to open the right page number to know more about the topic.
+
+            CONTEXT:
+            {context}
+        """
+        stream = self.openai_client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role":"system","content":System_prompt},
+                {"role":"user","content":query}
+            ],
+            stream=True,
+        )
+        for chunk in stream:
+            if not chunk.choices:
+                continue
+            delta = chunk.choices[0].delta.content
+            if delta:
+                yield delta
 
     def answer(self, query: str, k: int = 10) -> str:
         context = self.similarity_search(query, k)
         return self.generate_response(query, context)
+
+    def answer_stream(self, query: str, k: int = 10):
+        """Pipeline: retrieve context then stream LLM response."""
+        context = self.similarity_search(query, k)
+        yield from self.stream_response(query, context)
 
