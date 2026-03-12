@@ -6,7 +6,7 @@ __pycache__/
 *.vscode
 __init__.py
 tempCodeRunnerFile.py
-
+*.excalidraw
 # IDE
 .vscode/
 .idea/
