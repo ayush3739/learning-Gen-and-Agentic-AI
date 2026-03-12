@@ -1,3 +1,5 @@
+> **📌 Disclaimer:** This repository contains my personal notes and practice code written while following the **[Full Stack Generative and Agentic AI with Python](https://www.udemy.com/course/full-stack-ai-with-python/)** course by **Hitesh Choudhary** and **Piyush Garg** on Udemy. All code is independently written for learning purposes only. No course material, videos, or slides are reproduced here.
+> 
 # 🤖 Learning Generative & Agentic AI
 
 A structured, hands-on course repository that progresses from **Python fundamentals** all the way to **production-ready AI systems** — covering LLMs, RAG pipelines, AI Agents, voice agents, knowledge graphs, and more.
