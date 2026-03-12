@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 7–10: Advanced Python & OOP
 
 This section dives deeper into Python's programming model — generators, decorators, object-oriented design, comprehensions, and robust error handling. These patterns are used heavily in all later sections.

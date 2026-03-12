@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 21: RAG Systems (Retrieval-Augmented Generation)
 
 This section covers **RAG** — a technique that gives LLMs access to your own documents by retrieving relevant context at query time, solving the "LLMs don't know your data" problem.

@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 16–17: Prompting Techniques
 
 This section focuses on **prompt engineering** — crafting, structuring, and serialising prompts to reliably elicit high-quality, predictable outputs from LLMs.

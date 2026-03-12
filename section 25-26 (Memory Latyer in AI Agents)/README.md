@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 25–26: Memory Layer in AI Agents
 
 This section explores how to give AI agents **persistent, structured memory** so they can remember past conversations, user preferences, and facts across sessions using MongoDB.

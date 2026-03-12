@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 27: Graph Memory & Knowledge Graphs
 
 This section uses **Neo4j** — a graph database — to store knowledge as a network of entities and relationships, enabling agents to reason over complex, interconnected information that flat documents cannot represent well.
