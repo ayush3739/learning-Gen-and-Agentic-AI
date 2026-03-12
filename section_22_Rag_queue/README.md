@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 22: Distributed RAG with Message Queues
 
 This section scales the RAG pipeline from a single process to a **distributed, queue-based architecture** using Redis and Python-RQ — so heavy embedding and retrieval work can be handled by background workers.

@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 23–24: LangGraph & Multi-Modal AI
 
 This section introduces **LangGraph** — a framework for building stateful, graph-based agent workflows — and **multi-modal AI**, where agents process both text and images.

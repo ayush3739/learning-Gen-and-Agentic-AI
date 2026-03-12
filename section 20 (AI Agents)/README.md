@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 20: AI Agents
 
 This section covers **AI Agents** — LLM-powered programs that can autonomously use tools, make decisions, and take actions in the world. We build a general-purpose agent and a practical weather agent, plus a web-based TODO app.
