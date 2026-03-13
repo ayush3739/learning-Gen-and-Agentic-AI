@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 > **📌 Disclaimer:** This repository contains my personal notes and practice code written while following the **[Full Stack Generative and Agentic AI with Python](https://www.udemy.com/course/full-stack-ai-with-python/)** course by **Hitesh Choudhary** and **Piyush Garg** on Udemy. All code is independently written for learning purposes only. No course material, videos, or slides are reproduced here.
 > 
 # 🤖 Learning Generative & Agentic AI

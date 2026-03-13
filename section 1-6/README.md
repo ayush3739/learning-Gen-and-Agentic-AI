@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 1–6: Python Fundamentals
 
 This section covers the essential Python building blocks needed for the rest of the course. The focus is on writing clean, idiomatic Python before moving into concurrency, data validation, and AI topics.

@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 14–15: LLM Basics
 
 This section introduces **Large Language Models (LLMs)** and how to call them programmatically via APIs. We use OpenAI, Google Gemini, and GitHub Models as providers.

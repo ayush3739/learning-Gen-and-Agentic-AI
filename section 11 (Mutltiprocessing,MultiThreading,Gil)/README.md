@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 11: Multiprocessing, Multithreading & GIL
 
 This section explores Python's concurrency model — including the Global Interpreter Lock (GIL), threading, and multiprocessing — so you can write programs that efficiently use modern multi-core hardware.

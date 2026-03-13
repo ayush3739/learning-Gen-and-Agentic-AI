@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 18–19: Hugging Face & Ollama (Docker)
 
 This section introduces **open-source LLMs** — models you can run locally on your own hardware, without sending data to a third-party API. We use Hugging Face Transformers and Ollama (via Docker).

@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 28: Voice Agents & Model Context Protocol (MCP)
 
 This section adds **voice** (speech-to-text and text-to-speech) to AI agents and introduces the **Model Context Protocol (MCP)** — a standardised way to expose tools and data to AI models.

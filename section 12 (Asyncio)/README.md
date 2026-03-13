@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 12: Asyncio & Async Programming
 
 This section covers Python's native asynchronous programming model — `asyncio`, coroutines, event loops, and common concurrency pitfalls like race conditions and deadlocks.

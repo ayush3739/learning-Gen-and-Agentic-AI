@@ -1,3 +1,5 @@
+> 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
+
 # 📘 Section 13: Pydantic
 
 This section covers **Pydantic** — the most popular Python library for data validation and settings management. It underpins many AI frameworks (LangChain, FastAPI, OpenAI SDK) so understanding it is essential before moving into LLMs.
