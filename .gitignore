@@ -29,7 +29,7 @@ venv/
 env/
 ENV/
 .venv
-
+/local_llm
 # Environment variables
 .env
 .env.local
