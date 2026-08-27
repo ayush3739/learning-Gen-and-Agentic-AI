@@ -1,6 +1,8 @@
 > 📌 *Personal learning notes from the <a href="https://www.udemy.com/course/full-stack-ai-with-python/">Full Stack Generative and Agentic AI with Python</a> course.*
 
 > **📌 Disclaimer:** This repository contains my personal notes and practice code written while following the **[Full Stack Generative and Agentic AI with Python](https://www.udemy.com/course/full-stack-ai-with-python/)** course by **Hitesh Choudhary** and **Piyush Garg** on Udemy. All code is independently written for learning purposes only. No course material, videos, or slides are reproduced here.
+>
+> **Section 30 attribution:** The Observability & Tracing materials are adapted from the **[LangChain Academy](https://academy.langchain.com/)** LangSmith course for personal learning. The original copyright and MIT license are preserved in the section folder.
 > 
 # 🤖 Learning Generative & Agentic AI
 
@@ -27,6 +29,7 @@ A structured, hands-on course repository that progresses from **Python fundament
 | [25 – 26](section%2025-26%20%28Memory%20Latyer%20in%20AI%20Agents%29/README.md) | **Memory Layers in AI Agents** | Persistent conversation history, MongoDB for document storage, semantic memory |
 | [27](section%2027%20%28Graph%20Memory%20and%20Knowledge%20graphs%29/README.md) | **Knowledge Graphs** | Neo4j graph database, entity-relationship modelling, graph-based reasoning |
 | [28](section%2028%20%28Voice%20agents%20%26%20MCP%20%29/README.md) | **Voice Agents & MCP** | Speech-to-text, text-to-speech (ElevenLabs, Azure, gTTS), Model Context Protocol (MCP) |
+| [30](section%2030%20%28Observability%20%26%20Tracing%29/README.md) | **Observability & Tracing** | LangSmith tracing, datasets, evaluators, experiments, prompt management, and online evaluation |
 
 ---
 
@@ -83,6 +86,7 @@ learning-Gen-and-Agentic-AI/
 ├── section 25-26 (Memory)/   # Memory layers in agents
 ├── section 27 (Knowledge graphs)/# Graph memory & Neo4j
 ├── section 28 (Voice & MCP)/ # Voice agents & MCP
+├── section 30 (Observability & Tracing)/ # LangSmith observability and evaluation
 └── requirements.txt          # All Python dependencies
 ```
 
