@@ -1,14 +1,23 @@
 import os
+from pathlib import Path
+from dotenv import load_dotenv
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders.sitemap import SitemapLoader
 from langchain_community.vectorstores import SKLearnVectorStore
-from langchain_openai import OpenAIEmbeddings
+from langchain_ollama import OllamaEmbeddings
 from langsmith import traceable
 from openai import OpenAI
 from typing import List
 import nest_asyncio
 
-MODEL_NAME = "gpt-4o-mini"
+# Auto-load .env from section directory
+env_path = Path(__file__).resolve().parent.parent.parent / ".env"
+if env_path.exists():
+    load_dotenv(dotenv_path=env_path, override=True)
+else:
+    load_dotenv(override=True)
+
+MODEL_NAME = "openai/gpt-oss-20b"
 MODEL_PROVIDER = "openai"
 APP_VERSION = 1.0
 RAG_SYSTEM_PROMPT = """You are an assistant for question-answering tasks. 
@@ -17,11 +26,14 @@ If you don't know the answer, just say that you don't know.
 Use three sentences maximum and keep the answer concise.
 """
 
-openai_client = OpenAI()
+openai_client = OpenAI(
+    base_url="https://api.groq.com/openai/v1",
+    api_key=os.environ.get("GROQ_API_KEY")
+)
 
 def get_vector_db_retriever():
-    persist_path = os.path.join(os.getcwd(), "..", "resources", "union.parquet")
-    embd = OpenAIEmbeddings()
+    persist_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "resources", "union_ollama_nomic.parquet")
+    embd = OllamaEmbeddings(model="nomic-embed-text")
 
     # If vector store exists, then load it
     if os.path.exists(persist_path):
